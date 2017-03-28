@@ -39,15 +39,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         imageViewArrow = (ImageView) findViewById(R.id.imageViewArrow);
-
-        //this.haveAccelerometer = this.mSensorManager.registerListener(mSensorEventListener, this.mAccelerometer, SensorManager.SENSOR_DELAY_GAME);
-        //this.haveMagnetometer = this.mSensorManager.registerListener(mSensorEventListener, this.mMagnetometer, SensorManager.SENSOR_DELAY_GAME);
-
+        /*
+        haveAccelerometer = mSensorManager.registerListener(mSensorEventListener, mAccelerometer, SensorManager.SENSOR_DELAY_GAME);
+        haveMagnetometer = mSensorManager.registerListener(mSensorEventListener, mMagnetometer, SensorManager.SENSOR_DELAY_GAME);
         if (haveAccelerometer && haveMagnetometer) {
             // ready to go
         } else {
             // unregister and stop
-        }
+        } */
     }
 
     @Override
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             float azimuthInRadians = mOrientation[0];
             float azimuthInDegress = (float) (Math.toDegrees(azimuthInRadians) + 360) % 360;
             RotateAnimation ra = new RotateAnimation(
-                    mCurrentDegree, -azimuthInDegress, // z pozice do pozice
+                    mCurrentDegree+90, -azimuthInDegress+90, // z pozice do pozice
                     Animation.RELATIVE_TO_SELF, 0.5f,  // rotace kolem středu obrázku
                     Animation.RELATIVE_TO_SELF, 0.5f); // rotace kolem středu obrázku
 
